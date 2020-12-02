@@ -9,8 +9,7 @@ const dataset = require("./dataset");
         if (password.length < pos2) continue;
         const letter1 = password[Number(pos1) - 1];
         const letter2 = password[Number(pos2) - 1];
-        if (letter1 === letter && letter2 === letter) continue;
-        if (letter1 === letter || letter2 === letter) valid_count += 1;
+        if ((letter1 === letter) ^ (letter2 === letter)) valid_count += 1;
     }
     console.log("😻", valid_count);
 })();
