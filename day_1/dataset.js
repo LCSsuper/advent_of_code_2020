@@ -1,4 +1,4 @@
-const values = [
+module.exports = [
     1757,
     1890,
     1750,
@@ -200,34 +200,3 @@ const values = [
     1791,
     1975,
 ];
-
-const findTwo = () => {
-    for (const value of values) {
-        const remaining = 2020 - value;
-        if (values.find((e) => e === remaining)) {
-            console.log("😓", value, remaining, value * remaining);
-        }
-    }
-};
-
-const findThree = () => {
-    for (const value1 of values) {
-        for (const value2 of values) {
-            if (values.indexOf(value1) === values.indexOf(value2)) continue;
-            for (const value3 of values) {
-                if (values.indexOf(value2) === values.indexOf(value3)) continue;
-                if (value1 + value2 + value3 === 2020) {
-                    console.log(
-                        "👨‍🔧",
-                        value1,
-                        value2,
-                        value3,
-                        value1 * value2 * value3
-                    );
-                }
-            }
-        }
-    }
-};
-
-findThree();

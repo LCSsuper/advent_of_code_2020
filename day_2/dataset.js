@@ -1,4 +1,4 @@
-const database = [
+module.exports = [
     "8-9 n: nnnnnnnnn",
     "14-15 d: dzjgbdwdkdhdddh",
     "16-17 m: mmmmmmmmmxmmmmwmm",
@@ -1000,35 +1000,3 @@ const database = [
     "10-11 q: nqqqqgqfqpf",
     "4-15 b: fctbwzqnwbnvqbqlb",
 ];
-
-const validPasswordsOne = () => {
-    let valid_count = 0;
-    for (const row of database) {
-        const [validator, password] = row.split(": ");
-        const [amounts, letter] = validator.split(" ");
-        const [min, max] = amounts.split("-");
-        const occurrences = (password.match(new RegExp(letter, "g")) || [])
-            .length;
-        if (occurrences >= Number(min) && occurrences <= Number(max)) {
-            valid_count += 1;
-        }
-    }
-    console.log("😻", valid_count);
-};
-
-const validPasswordsTwo = () => {
-    let valid_count = 0;
-    for (const row of database) {
-        const [validator, password] = row.split(": ");
-        const [positions, letter] = validator.split(" ");
-        const [pos1, pos2] = positions.split("-");
-        if (password.length < pos2) continue;
-        const letter1 = password[Number(pos1) - 1];
-        const letter2 = password[Number(pos2) - 1];
-        if (letter1 === letter && letter2 === letter) continue;
-        if (letter1 === letter || letter2 === letter) valid_count += 1;
-    }
-    console.log("😻", valid_count);
-};
-
-validPasswordsTwo();
