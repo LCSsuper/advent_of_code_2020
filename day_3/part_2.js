@@ -7,8 +7,7 @@ const dataset = require("./dataset");
         let tree_count = 0;
 
         for (let i = 0; i < dataset.length; i += interval_down) {
-            if (index >= width) index -= width;
-            if (dataset[i][index] === "#") tree_count++;
+            if (dataset[i][index % width] === "#") tree_count++;
             index += interval_right;
         }
         return tree_count;
