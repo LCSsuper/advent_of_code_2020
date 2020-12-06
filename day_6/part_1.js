@@ -9,8 +9,7 @@ const fs = require("fs");
 
     for (const answer_group of answer_groups) {
         const answers = [...answer_group];
-        total += answers.filter((e, index) => answers.indexOf(e) === index)
-            .length;
+        total += new Set(answers).size;
     }
     console.log("👷‍♀️", total);
 })();
